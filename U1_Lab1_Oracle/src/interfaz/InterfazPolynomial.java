@@ -3,6 +3,7 @@ package interfaz;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.border.Border;
 
 import model.Graeffe;
 
@@ -14,18 +15,23 @@ public class InterfazPolynomial extends JFrame{
 	
 	private static Graeffe g ;
 	private Panel_Develop pDev;
+	private PanelOptions pOpt;
 	
 	public InterfazPolynomial(){
 		pDev = new Panel_Develop(this);
-		inicial();
+		pOpt = new PanelOptions(this);
 		
+		inicial();
 	}
 	
 	public void inicial(){
 		setTitle("-------> Oracle_Polynomial <--------");
-		setSize(500,500);
+		setSize(400,150);
 		setLocationRelativeTo(null); 
 		setLayout(new BorderLayout());
+		add(pDev,BorderLayout.CENTER);
+		add(pOpt,BorderLayout.SOUTH);
+		setResizable(true);
 	}
 	 
 	public static void main(String[] args) {
@@ -77,6 +83,10 @@ public class InterfazPolynomial extends JFrame{
 		 
 		InterfazPolynomial windows = new InterfazPolynomial();
 		windows.setVisible(true);
+	}
+	
+	public void save(int[] array){
+		
 	}
 	
 }
