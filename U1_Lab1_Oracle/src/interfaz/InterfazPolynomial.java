@@ -29,9 +29,11 @@ public class InterfazPolynomial extends JFrame{
 		setSize(400,150);
 		setLocationRelativeTo(null); 
 		setLayout(new BorderLayout());
+		
 		add(pDev,BorderLayout.CENTER);
 		add(pOpt,BorderLayout.SOUTH);
 		setResizable(true);
+		
 	}
 	 
 	public static void main(String[] args) {
@@ -83,6 +85,7 @@ public class InterfazPolynomial extends JFrame{
 		 
 		InterfazPolynomial windows = new InterfazPolynomial();
 		windows.setVisible(true);
+		
 	}
 	
 	public void save(int[] array){

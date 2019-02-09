@@ -20,6 +20,7 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	public static final String SAVE = "save";
 	
 	private InterfazPolynomial main;
+	
 	private JTextField a0;
 	private JTextField a1;
 	private JTextField a2;
@@ -40,8 +41,6 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	public Panel_Develop(InterfazPolynomial main) {
 		this.main=main;
 		setLayout(new BorderLayout());
-		
-		
 		
 		a0= new JTextField("0");
 		a1= new JTextField("0");
