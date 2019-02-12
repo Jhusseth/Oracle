@@ -1,6 +1,7 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,9 +9,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class Panel_Develop extends JPanel implements ActionListener {
 
@@ -127,10 +132,17 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		p6.add(lbp);
 		p6.add(lbs);
 		
+		JScrollPane scroll = new JScrollPane( );
+        scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
+        scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+        scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
+        scroll.getViewport( ).add( p4 );
+		
 		p4.add(lb1);
 		p4.add(lb2);
+		p5.add( scroll, BorderLayout.CENTER );
 		p5.add(p6,BorderLayout.NORTH);
-		p5.add(p4,BorderLayout.CENTER);
+//		p5.add(p4,BorderLayout.CENTER);
 		
 		add(p5,BorderLayout.CENTER);
 		
@@ -214,6 +226,52 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		a8.setText("" +x2);
 		a9.setText("" +x1);
 		a10.setText("" +x0);
+	}
+	
+	
+	public void clear(){
+		a0.setText("0");
+		a1.setText("0");
+		a2.setText("0");
+		a3.setText("0");
+		a4.setText("0");
+		a5.setText("0");
+		a6.setText("0");
+		a7.setText("0");
+		a8.setText("0");
+		a9.setText("0");
+		a10.setText("0");
+		
+		lb1.setText("");
+		lb2.setText("");
+	}
+	
+	public void write(){
+		a0.setEditable(true);
+		a1.setEditable(true);
+		a2.setEditable(true);
+		a3.setEditable(true);
+		a4.setEditable(true);
+		a5.setEditable(true);
+		a6.setEditable(true);
+		a7.setEditable(true);
+		a8.setEditable(true);
+		a9.setEditable(true);
+		a10.setEditable(true);
+	}
+	
+	public void noWrite(){
+		a0.setEditable(false);
+		a1.setEditable(false);
+		a2.setEditable(false);
+		a3.setEditable(false);
+		a4.setEditable(false);
+		a5.setEditable(false);
+		a6.setEditable(false);
+		a7.setEditable(false);
+		a8.setEditable(false);
+		a9.setEditable(false);
+		a10.setEditable(false);
 	}
 
 }

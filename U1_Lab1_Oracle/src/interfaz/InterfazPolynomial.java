@@ -30,16 +30,17 @@ public class InterfazPolynomial extends JFrame{
 	
 	public void inicial(){
 		setTitle("-------> Oracle_Polynomial <--------");
-		setSize(650,230);
+		setSize(708,360);
 		setLocationRelativeTo(null); 
 		setLayout(new BorderLayout());
 		
 		add(pDev,BorderLayout.CENTER);
 		add(pOpt,BorderLayout.SOUTH);
-		setResizable(true);
+		setResizable(false);
 		
 		arr = new ArrayList<int[]>();
 		
+		disableWrite();
 	}
 	 
 	public static void main(String[] args) {
@@ -115,7 +116,7 @@ public class InterfazPolynomial extends JFrame{
 	}
 	
 	public void Clean(){
-		
+		pDev.clear();
 	}
 	
     public void Solution(){
@@ -130,13 +131,21 @@ public class InterfazPolynomial extends JFrame{
     		n[i] = 0; 		
        	}
     	
-    	for(int i =0;i<grade;i++){
+    	for(int i =0;i<=grade;i++){
     		int num = (int)(Math.random()*100);
     		n[i]=num;
     	}
     	
     	pDev.generateDate(n[0], n[1], n[2], n[3], n[4], n[5], n[6], n[7], n[8], n[9], n[10]);
     	
+    }
+    
+    public void activeWrite(){
+    	pDev.write();
+    }
+    
+    public void disableWrite(){
+    	pDev.noWrite();
     }
 	
 }

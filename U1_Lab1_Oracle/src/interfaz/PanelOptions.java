@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -18,11 +19,13 @@ public class PanelOptions extends JPanel implements ActionListener {
 	public static final String CLEAN = "clean";
 	public static final String READY = "ready";
 	public static final String GENERATE = "generate";
+	public static final String WRITE = "write";
 	
 	private InterfazPolynomial main;
 	private JButton clean;
 	private JButton ready;
 	private JButton generate;
+	private JButton write;
 
 	public PanelOptions(InterfazPolynomial main) {
 		this.main = main;
@@ -39,12 +42,18 @@ public class PanelOptions extends JPanel implements ActionListener {
 		generate.addActionListener(this);
 		generate.setActionCommand(GENERATE);
 		
-		setLayout(new GridLayout(1,3,5,5));
+		write = new JButton("Write");
+		write.addActionListener(this);
+		write.setActionCommand(WRITE);
 		
+		setLayout(new GridLayout(1,6,5,15));
 		
+		add(new JLabel("  "));
 		add(clean);
+		add(write);
 		add(ready);
 		add(generate);
+		add(new JLabel("  "));
 	}
 
 	@Override
@@ -65,15 +74,20 @@ public class PanelOptions extends JPanel implements ActionListener {
 		    	
 		    	int gra = Integer.parseInt(grade);
 		    	if(gra>10){
-//     JOptionPane.showMessageDialog(null, "the program only accep");
+                   JOptionPane.showMessageDialog(null, "the program only accepts \n         up to grade 10");
 		    	}
 		    	else{
 			    main.Generate(gra);
+			    main.disableWrite();
 		    	}
 			}
 			catch(Exception ex){
 	    		ex.printStackTrace();
 	    	}
         }
+		
+		else  if(command.equals(WRITE)){
+			main.activeWrite();
+		}
 	}
 }
