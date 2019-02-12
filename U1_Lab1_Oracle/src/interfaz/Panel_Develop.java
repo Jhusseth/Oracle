@@ -168,8 +168,8 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		
 	}
 	
-	public int[] arrayT(){
-		int[] Cpoly = new int[11];
+	public double[] arrayT(){
+		double[] Cpoly = new double[11];
 		
 		try{
 		int x0 = Integer.parseInt(a0.getText());

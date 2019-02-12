@@ -29,6 +29,10 @@ public class Graeffe {
         numReales=0;
         numComplejas=0;
     }
+    
+    public Graeffe() {
+    	
+    }
 
     private void tabla(){
         int k,l, signo;
@@ -206,5 +210,23 @@ exterior:
         }
         System.out.println("");
     }
+
+	@Override
+	public String toString() {
+		
+		hallarRaices();
+		String MsjR = " ";
+		String MsjC = " ";
+		for(int i=0; i<numReales; i++){
+			MsjR+= "Raices Reales: " + (double)Math.round(raicesReales[i]*100)/100 + "\n";
+		}
+		
+		for(int i=0; i<numComplejas; i++){
+			MsjC+= "Raices Reales: " + raicesComplejas[2*i] + "\n";
+		}
+		
+		return MsjR + "\n" + MsjC ;
+		
+	}
 
 }

@@ -19,7 +19,7 @@ public class InterfazPolynomial extends JFrame{
 	private Panel_Develop pDev;
 	private PanelOptions pOpt;
 	
-	private ArrayList<int[]> arr;
+	private ArrayList<double[]> arr;
 	
 	public InterfazPolynomial(){
 		pDev = new Panel_Develop(this);
@@ -38,9 +38,11 @@ public class InterfazPolynomial extends JFrame{
 		add(pOpt,BorderLayout.SOUTH);
 		setResizable(false);
 		
-		arr = new ArrayList<int[]>();
+		arr = new ArrayList<double[]>();
 		
 		disableWrite();
+		
+		g = new Graeffe();
 	}
 	 
 	public static void main(String[] args) {
@@ -95,7 +97,7 @@ public class InterfazPolynomial extends JFrame{
 		
 	}
 	
-	public void Message(int[] array){
+	public void Message(double[] array){
 		arr.add(array);
 		int contador =1;
 		String m = "1. ) ";
@@ -111,8 +113,8 @@ public class InterfazPolynomial extends JFrame{
 		pDev.setLb1(m + "\n");
 	}
 	
-	public int[] getArray(int i){
-		return arr.get(i);
+	public ArrayList<double[]> getArray(){
+		return arr;
 	}
 	
 	public void Clean(){
@@ -120,7 +122,16 @@ public class InterfazPolynomial extends JFrame{
 	}
 	
     public void Solution(){
-		
+    	try{
+    	for(int i =0;i<arr.size();i++){	
+    		g = new Graeffe(arr.get(i));
+    	}
+    	
+    	pDev.setLb2(g.toString());
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    	}
 	}
     
     public void Generate(int grade){
@@ -146,6 +157,6 @@ public class InterfazPolynomial extends JFrame{
     
     public void disableWrite(){
     	pDev.noWrite();
-    }
+    }    
 	
 }

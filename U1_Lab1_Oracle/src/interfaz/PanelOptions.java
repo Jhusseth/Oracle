@@ -65,7 +65,12 @@ public class PanelOptions extends JPanel implements ActionListener {
 		}
 
 		else if(command.equals(READY)){
-			main.Solution();
+			if(main.getArray().isEmpty()){
+				JOptionPane.showMessageDialog(null, "there aren't polynomials to solve");
+			}
+			else{
+				main.Solution();
+			}
 		}
 
 		else if(command.equals(GENERATE)){
