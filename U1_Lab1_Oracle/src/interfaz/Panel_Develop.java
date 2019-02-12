@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -35,8 +36,8 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	
 	private JButton btnSave;
 	
-	private JLabel lb1;
-	private JLabel lb2;
+	private JTextArea lb1;
+	private JTextArea  lb2;
 	
 	public Panel_Develop(InterfazPolynomial main) {
 		this.main=main;
@@ -55,6 +56,7 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		a10= new JTextField("0");
 		
 		a0.setHorizontalAlignment(SwingConstants.CENTER);
+		a1.setHorizontalAlignment(SwingConstants.CENTER);
 		a2.setHorizontalAlignment(SwingConstants.CENTER);
 		a3.setHorizontalAlignment(SwingConstants.CENTER);
 		a4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -70,18 +72,17 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		p1.setLayout(new BorderLayout());
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(this);
-		btnSave.setActionCommand(SAVE);	
-		
+		btnSave.setActionCommand(SAVE);
 		JPanel p2= new JPanel();
-		p2.setLayout(new GridLayout(1,11,10,10));
+		p2.setLayout(new GridLayout(1,11,10,20));
 		
 		JLabel lb = new JLabel("Escribir coeficientes del polinomio");
 		lb.setHorizontalAlignment(SwingConstants.CENTER);
-		p1.add(lb,BorderLayout.NORTH);
+		p1.add(lb,BorderLayout.SOUTH);
 		p1.add(p2,BorderLayout.CENTER);
 		p1.add(new JLabel("            "),BorderLayout.WEST);
 		p1.add(btnSave,BorderLayout.EAST);
-		p1.add(new JLabel("            "),BorderLayout.SOUTH);
+		p1.add(new JLabel("            "),BorderLayout.NORTH);
 		
 		p2.add(a0);
 		p2.add(a1);
@@ -100,19 +101,48 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	
 	
 		p3.add(p1,BorderLayout.CENTER);	
-		add(p3,BorderLayout.CENTER);
+		add(p3,BorderLayout.NORTH);
+		
+		JPanel p5= new JPanel();
+		p5.setLayout(new BorderLayout());
 		
 		JPanel p4= new JPanel();
-		p4.setLayout(new GridLayout(2,2,5,5));
-		lb1 = new JLabel();
-		lb2= new JLabel();
+		p4.setLayout(new GridLayout(1,2,5,0));
 		
-		p4.add(new JLabel("   Polynomials :"));
-		p4.add(new JLabel("   Solution :"));
+		JPanel p6= new JPanel();
+		p6.setLayout(new GridLayout(1,2,5,0));
+		
+		lb1 = new  JTextArea ();
+		lb2= new  JTextArea ();
+		
+		lb1.setEditable(false);
+		lb2.setEditable(false);
+		
+		JLabel lbp =new JLabel("Polynomials :");
+		JLabel lbs =new JLabel("Solutions :");
+		
+		lbs.setHorizontalAlignment(SwingConstants.CENTER);
+		lbp.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		p6.add(lbp);
+		p6.add(lbs);
+		
 		p4.add(lb1);
 		p4.add(lb2);
-		add(p4,BorderLayout.SOUTH);
+		p5.add(p6,BorderLayout.NORTH);
+		p5.add(p4,BorderLayout.CENTER);
 		
+		add(p5,BorderLayout.CENTER);
+		
+	}
+
+
+	public void setLb1(String lb1) {
+		this.lb1.setText(lb1);
+	}
+
+	public void setLb2(String lb2) {
+		this.lb2.setText(lb2);
 	}
 
 	@Override
@@ -121,19 +151,69 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		String command = e.getActionCommand();
 		
 		if(command.equals(SAVE)){
-			
+			main.Message(arrayT());
 		}
 		
 	}
 	
 	public int[] arrayT(){
-		int[] Cpoly = new int[10];
+		int[] Cpoly = new int[11];
 		
-		for(int i =0;i<Cpoly.length;i++){
-			Cpoly[i] = Integer.parseInt("");
+		try{
+		int x0 = Integer.parseInt(a0.getText());
+		Cpoly[10]=x0;
+		
+		int x1 = Integer.parseInt(a1.getText());
+		Cpoly[9]=x1;
+		
+		int x2 = Integer.parseInt(a2.getText());
+		Cpoly[8]=x2;
+		
+		int x3 = Integer.parseInt(a3.getText());
+		Cpoly[7]=x3;
+		
+		int x4 = Integer.parseInt(a4.getText());
+		Cpoly[6]=x4;
+		
+		int x5 = Integer.parseInt(a5.getText());
+		Cpoly[5]=x5;
+		
+		int x6 = Integer.parseInt(a6.getText());
+		Cpoly[4]=x6;
+		
+		int x7 = Integer.parseInt(a7.getText());
+		Cpoly[3]=x7;
+		
+		int x8 = Integer.parseInt(a8.getText());
+		Cpoly[2]=x8;
+		
+		int x9 = Integer.parseInt(a9.getText());
+		Cpoly[1]=x9;
+		
+		int x10 = Integer.parseInt(a10.getText());
+		Cpoly[0]=x10;
+		
+		}
+		catch(Exception e){
+			e.printStackTrace();
 		}
 		
 		return Cpoly;
+	}
+	
+	
+	public void generateDate(int x0,int x1, int x2,int x3, int x4,int x5, int x6,int x7, int x8,int x9, int x10){
+		a0.setText("" +x10);
+		a1.setText("" +x9);
+		a2.setText("" +x8);
+		a3.setText("" +x7);
+		a4.setText("" +x6);
+		a5.setText("" +x5);
+		a6.setText("" +x4);
+		a7.setText("" +x3);
+		a8.setText("" +x2);
+		a9.setText("" +x1);
+		a10.setText("" +x0);
 	}
 
 }

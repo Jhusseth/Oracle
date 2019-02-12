@@ -1,9 +1,11 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.border.Border;
+import javax.swing.JOptionPane;
 
 import model.Graeffe;
 
@@ -17,6 +19,8 @@ public class InterfazPolynomial extends JFrame{
 	private Panel_Develop pDev;
 	private PanelOptions pOpt;
 	
+	private ArrayList<int[]> arr;
+	
 	public InterfazPolynomial(){
 		pDev = new Panel_Develop(this);
 		pOpt = new PanelOptions(this);
@@ -26,13 +30,15 @@ public class InterfazPolynomial extends JFrame{
 	
 	public void inicial(){
 		setTitle("-------> Oracle_Polynomial <--------");
-		setSize(400,150);
+		setSize(650,230);
 		setLocationRelativeTo(null); 
 		setLayout(new BorderLayout());
 		
 		add(pDev,BorderLayout.CENTER);
 		add(pOpt,BorderLayout.SOUTH);
 		setResizable(true);
+		
+		arr = new ArrayList<int[]>();
 		
 	}
 	 
@@ -88,8 +94,49 @@ public class InterfazPolynomial extends JFrame{
 		
 	}
 	
-	public void save(int[] array){
+	public void Message(int[] array){
+		arr.add(array);
+		int contador =1;
+		String m = "1. ) ";
+		for(int i =0;i<arr.size();i++){
+			for(int j =arr.get(i).length-1;j>=0;j--){
+				m += arr.get(i)[j]+ "X" + "^"+ j + " ";		
+			}
+			contador++;
+			
+			m +="\n" + contador + " ). ";
+		}
+		
+		pDev.setLb1(m + "\n");
+	}
+	
+	public int[] getArray(int i){
+		return arr.get(i);
+	}
+	
+	public void Clean(){
 		
 	}
+	
+    public void Solution(){
+		
+	}
+    
+    public void Generate(int grade){
+    	
+    	int[] n = new int [11];
+
+    	for(int i =0;i<n.length;i++){
+    		n[i] = 0; 		
+       	}
+    	
+    	for(int i =0;i<grade;i++){
+    		int num = (int)(Math.random()*100);
+    		n[i]=num;
+    	}
+    	
+    	pDev.generateDate(n[0], n[1], n[2], n[3], n[4], n[5], n[6], n[7], n[8], n[9], n[10]);
+    	
+    }
 	
 }
