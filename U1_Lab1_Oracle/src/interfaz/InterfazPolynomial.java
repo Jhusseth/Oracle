@@ -1,11 +1,9 @@
 package interfaz;
 
 import java.awt.BorderLayout;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import model.Graeffe;
 
@@ -80,7 +78,7 @@ public class InterfazPolynomial extends JFrame{
 //	        g=new Graeffe(coef9);
 //	        g.mostrarRaices();
 		 
-//		 double[] coef = {};
+//		 double[] coef = {10,11,3,-10};
 //		 g = new Graeffe(coef);
 //		 g.mostrarRaices();
 //     
@@ -132,6 +130,7 @@ public class InterfazPolynomial extends JFrame{
     	catch(Exception e){
     		e.printStackTrace();
     	}
+    	g.mostrarRaices();
 	}
     
     public void Generate(int grade){
