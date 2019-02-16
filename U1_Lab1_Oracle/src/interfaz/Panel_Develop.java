@@ -169,6 +169,7 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	}
 	
 	public double[] arrayT(int n){
+		
 		JTextField[] aTxt = new JTextField[11];
 		double[] cPoly = new double[n+1];
 		aTxt[0] = a0;
@@ -182,17 +183,18 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		aTxt[8] = a8;
 		aTxt[9] = a9;
 		aTxt[10] = a10;
-		
-		System.out.println(cPoly.length);
+		try{
 		
 		for(int i =0;i<aTxt.length;i++){
 			if(!aTxt[i].getText().equals("0")){
-				System.out.println(aTxt[i].getText());
 				double num = Integer.parseInt(aTxt[i].getText());
 				cPoly[i]=num;
 			}
 		}
-		System.out.println(cPoly.length);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		
 		return cPoly;
 	}

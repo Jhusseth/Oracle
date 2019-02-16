@@ -24,6 +24,7 @@ public class InterfazPolynomial extends JFrame{
 		pOpt = new PanelOptions(this);
 		
 		inicial();
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
 	public void inicial(){
@@ -124,15 +125,17 @@ public class InterfazPolynomial extends JFrame{
     public void Solution(){
     	try{
     	for(int i =0;i<arr.size();i++){	
-    		g = new Graeffe(arr.get(i));
+    		double[] arg = new double[arr.get(i).length];
+    		for(int j =arr.get(i).length-1;j>=0;j--){
+    			arg[j]=arr.get(i)[j];
+    		}
+    		g = new Graeffe(arg);
+    		pDev.setLb2(g.toString());   		
     	}
-    	
-    	pDev.setLb2(g.toString());
     	}
     	catch(Exception e){
     		e.printStackTrace();
     	}
-    	g.mostrarRaices();
 	}
     
     public void Generate(int grade){
