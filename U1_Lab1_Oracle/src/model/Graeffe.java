@@ -215,14 +215,14 @@ exterior:
 	public String toString() {
 		
 		hallarRaices();
-		String MsjR = " ";
-		String MsjC = " ";
+		String MsjR = "";
+		String MsjC = "";
 		for(int i=0; i<numReales; i++){
 			MsjR+= "Raices Reales: " + (double)Math.round(raicesReales[i]*100)/100 + "\n";
 		}
 		
 		for(int i=0; i<numComplejas; i++){
-			MsjC+= "Raices Reales: " + raicesComplejas[2*i] + "\n";
+			MsjC+= "Raices Complejas: " + raicesComplejas[2*i] + "\n";
 		}
 		
 		return MsjR + "\n" + MsjC ;

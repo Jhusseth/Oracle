@@ -231,6 +231,8 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		
 		lb1.setText("");
 		lb2.setText("");
+		
+		look();
 	}
 	
 	public void write(){
@@ -278,6 +280,26 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		
 		for(int i =10;i>d;i--){
 			aTxt[i].setVisible(false);
+		}
+	}
+	
+	
+	public void look(){
+		JTextField[] aTxt = new JTextField[11];
+		aTxt[0] = a0;
+		aTxt[1] = a1;
+		aTxt[2] = a2;
+		aTxt[3] = a3;
+		aTxt[4] = a4;
+		aTxt[5] = a5;
+		aTxt[6] = a6;
+		aTxt[7] = a7;
+		aTxt[8] = a8;
+		aTxt[9] = a9;
+		aTxt[10] = a10;
+		
+		for(int i =0;i<aTxt.length;i++){
+			aTxt[i].setVisible(true);
 		}
 	}
 	

@@ -104,7 +104,20 @@ public class PanelOptions extends JPanel implements ActionListener {
         }
 		
 		else  if(command.equals(WRITE)){
-			main.activeWrite();
+			try{
+		    	String grade = JOptionPane.showInputDialog("Insert Grade of Polynomial to generate");
+		    	
+		    	 grado = Integer.parseInt(grade);
+		    	if(grado>10){
+                   JOptionPane.showMessageDialog(null, "the program only accepts \n         up to grade 10");
+		    	}
+		    	else{
+			    main.activeWrite(grado);
+		    	}
+			}
+			catch(Exception ex){
+	    		ex.printStackTrace();
+	    	}
 		}
 	}
 }

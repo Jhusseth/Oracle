@@ -157,8 +157,9 @@ public class InterfazPolynomial extends JFrame{
     	
     }
     
-    public void activeWrite(){
+    public void activeWrite(int grade){
     	pDev.write();
+    	pDev.Hide(grade);
     }
     
     public void disableWrite(){
