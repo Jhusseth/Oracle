@@ -170,7 +170,7 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	
 	public double[] arrayT(int n){
 		JTextField[] aTxt = new JTextField[11];
-		double[] cPoly = new double[n];
+		double[] cPoly = new double[n+1];
 		aTxt[0] = a0;
 		aTxt[1] = a1;
 		aTxt[2] = a2;
@@ -183,8 +183,11 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		aTxt[9] = a9;
 		aTxt[10] = a10;
 		
+		System.out.println(cPoly.length);
+		
 		for(int i =0;i<aTxt.length;i++){
-			if(!(aTxt[i].getText().equals(""))){
+			if(!aTxt[i].getText().equals("0")){
+				System.out.println(aTxt[i].getText());
 				double num = Integer.parseInt(aTxt[i].getText());
 				cPoly[i]=num;
 			}
@@ -196,17 +199,17 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	
 	
 	public void generateDate(int x0,int x1, int x2,int x3, int x4,int x5, int x6,int x7, int x8,int x9, int x10){
-		a0.setText("" +x10);
-		a1.setText("" +x9);
-		a2.setText("" +x8);
-		a3.setText("" +x7);
-		a4.setText("" +x6);
+		a0.setText("" +x0);
+		a1.setText("" +x1);
+		a2.setText("" +x2);
+		a3.setText("" +x3);
+		a4.setText("" +x4);
 		a5.setText("" +x5);
-		a6.setText("" +x4);
-		a7.setText("" +x3);
-		a8.setText("" +x2);
-		a9.setText("" +x1);
-		a10.setText("" +x0);
+		a6.setText("" +x6);
+		a7.setText("" +x7);
+		a8.setText("" +x8);
+		a9.setText("" +x9);
+		a10.setText("" +x10);
 	}
 	
 	
@@ -271,7 +274,7 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		aTxt[9] = a9;
 		aTxt[10] = a10;
 		
-		for(int i =10;i>aTxt.length;i--){
+		for(int i =10;i>d;i--){
 			aTxt[i].setVisible(false);
 		}
 	}
