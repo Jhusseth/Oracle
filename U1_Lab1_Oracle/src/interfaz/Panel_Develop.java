@@ -48,17 +48,17 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		this.main=main;
 		setLayout(new BorderLayout());
 		
-		a0= new JTextField("0");
-		a1= new JTextField("0");
-		a2= new JTextField("0");
-		a3= new JTextField("0");
-		a4= new JTextField("0");
-		a5= new JTextField("0");
-		a6= new JTextField("0");
-		a7= new JTextField("0");
-		a8= new JTextField("0");
-		a9= new JTextField("0");
-		a10= new JTextField("0");
+		a0= new JTextField("");
+		a1= new JTextField("");
+		a2= new JTextField("");
+		a3= new JTextField("");
+		a4= new JTextField("");
+		a5= new JTextField("");
+		a6= new JTextField("");
+		a7= new JTextField("");
+		a8= new JTextField("");
+		a9= new JTextField("");
+		a10= new JTextField("");
 		
 		a0.setHorizontalAlignment(SwingConstants.CENTER);
 		a1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -89,17 +89,17 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		p1.add(btnSave,BorderLayout.EAST);
 		p1.add(new JLabel("            "),BorderLayout.NORTH);
 		
-		p2.add(a0);
-		p2.add(a1);
-		p2.add(a2);
-		p2.add(a3);
-		p2.add(a4);
-		p2.add(a5);
-		p2.add(a6);
-		p2.add(a7);
-		p2.add(a8);
-		p2.add(a9);
 		p2.add(a10);
+		p2.add(a9);
+		p2.add(a8);
+		p2.add(a7);
+		p2.add(a6);
+		p2.add(a5);
+		p2.add(a4);
+		p2.add(a3);
+		p2.add(a2);
+		p2.add(a1);
+		p2.add(a0);
 		
 		JPanel p3= new JPanel();
 		p3.setLayout(new BorderLayout());
@@ -163,54 +163,35 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		String command = e.getActionCommand();
 		
 		if(command.equals(SAVE)){
-			main.Message(arrayT());
+			main.Message(arrayT(main.grade()));
 		}
 		
 	}
 	
-	public double[] arrayT(){
-		double[] Cpoly = new double[11];
+	public double[] arrayT(int n){
+		JTextField[] aTxt = new JTextField[11];
+		double[] cPoly = new double[n];
+		aTxt[0] = a0;
+		aTxt[1] = a1;
+		aTxt[2] = a2;
+		aTxt[3] = a3;
+		aTxt[4] = a4;
+		aTxt[5] = a5;
+		aTxt[6] = a6;
+		aTxt[7] = a7;
+		aTxt[8] = a8;
+		aTxt[9] = a9;
+		aTxt[10] = a10;
 		
-		try{
-		int x0 = Integer.parseInt(a0.getText());
-		Cpoly[10]=x0;
-		
-		int x1 = Integer.parseInt(a1.getText());
-		Cpoly[9]=x1;
-		
-		int x2 = Integer.parseInt(a2.getText());
-		Cpoly[8]=x2;
-		
-		int x3 = Integer.parseInt(a3.getText());
-		Cpoly[7]=x3;
-		
-		int x4 = Integer.parseInt(a4.getText());
-		Cpoly[6]=x4;
-		
-		int x5 = Integer.parseInt(a5.getText());
-		Cpoly[5]=x5;
-		
-		int x6 = Integer.parseInt(a6.getText());
-		Cpoly[4]=x6;
-		
-		int x7 = Integer.parseInt(a7.getText());
-		Cpoly[3]=x7;
-		
-		int x8 = Integer.parseInt(a8.getText());
-		Cpoly[2]=x8;
-		
-		int x9 = Integer.parseInt(a9.getText());
-		Cpoly[1]=x9;
-		
-		int x10 = Integer.parseInt(a10.getText());
-		Cpoly[0]=x10;
-		
+		for(int i =0;i<aTxt.length;i++){
+			if(!(aTxt[i].getText().equals(""))){
+				double num = Integer.parseInt(aTxt[i].getText());
+				cPoly[i]=num;
+			}
 		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
+		System.out.println(cPoly.length);
 		
-		return Cpoly;
+		return cPoly;
 	}
 	
 	
@@ -230,17 +211,18 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	
 	
 	public void clear(){
-		a0.setText("0");
-		a1.setText("0");
-		a2.setText("0");
-		a3.setText("0");
-		a4.setText("0");
-		a5.setText("0");
-		a6.setText("0");
-		a7.setText("0");
-		a8.setText("0");
-		a9.setText("0");
-		a10.setText("0");
+		a0.setVisible(false);
+		a0.setText("");
+		a1.setText("");
+		a2.setText("");
+		a3.setText("");
+		a4.setText("");
+		a5.setText("");
+		a6.setText("");
+		a7.setText("");
+		a8.setText("");
+		a9.setText("");
+		a10.setText("");
 		
 		lb1.setText("");
 		lb2.setText("");
@@ -273,5 +255,27 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		a9.setEditable(false);
 		a10.setEditable(false);
 	}
+	
+	
+	public void Hide(int d){
+		JTextField[] aTxt = new JTextField[11];
+		aTxt[0] = a0;
+		aTxt[1] = a1;
+		aTxt[2] = a2;
+		aTxt[3] = a3;
+		aTxt[4] = a4;
+		aTxt[5] = a5;
+		aTxt[6] = a6;
+		aTxt[7] = a7;
+		aTxt[8] = a8;
+		aTxt[9] = a9;
+		aTxt[10] = a10;
+		
+		for(int i =10;i>aTxt.length;i--){
+			aTxt[i].setVisible(false);
+		}
+	}
+	
+	
 
 }

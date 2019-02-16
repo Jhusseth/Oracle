@@ -26,9 +26,13 @@ public class PanelOptions extends JPanel implements ActionListener {
 	private JButton ready;
 	private JButton generate;
 	private JButton write;
+	
+	
+	int grado = 0;
 
 	public PanelOptions(InterfazPolynomial main) {
 		this.main = main;
+		grado =0;
 		
 		clean = new JButton("Clean");
 		clean.addActionListener(this);
@@ -56,6 +60,14 @@ public class PanelOptions extends JPanel implements ActionListener {
 		add(new JLabel("  "));
 	}
 
+	public int getGrado() {
+		return grado;
+	}
+
+	public void setGrado(int grado) {
+		this.grado = grado;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
@@ -77,12 +89,12 @@ public class PanelOptions extends JPanel implements ActionListener {
 			try{
 		    	String grade = JOptionPane.showInputDialog("Insert Grade of Polynomial to generate");
 		    	
-		    	int gra = Integer.parseInt(grade);
-		    	if(gra>10){
+		    	 grado = Integer.parseInt(grade);
+		    	if(grado>10){
                    JOptionPane.showMessageDialog(null, "the program only accepts \n         up to grade 10");
 		    	}
 		    	else{
-			    main.Generate(gra);
+			    main.Generate(grado);
 			    main.disableWrite();
 		    	}
 			}

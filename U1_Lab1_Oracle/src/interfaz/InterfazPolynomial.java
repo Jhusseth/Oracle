@@ -78,7 +78,7 @@ public class InterfazPolynomial extends JFrame{
 //	        g=new Graeffe(coef9);
 //	        g.mostrarRaices();
 		 
-//		 double[] coef = {10,11,3,-10};
+//		 double[] coef = {1,2,3,4,5,6,7,8};
 //		 g = new Graeffe(coef);
 //		 g.mostrarRaices();
 //     
@@ -88,7 +88,7 @@ public class InterfazPolynomial extends JFrame{
 //		 catch (Exception ex) { 
 //			 System.out.println(ex);  
 //		 }   
-		 
+//		 
 		 
 		InterfazPolynomial windows = new InterfazPolynomial();
 		windows.setVisible(true);
@@ -101,7 +101,7 @@ public class InterfazPolynomial extends JFrame{
 		String m = "1. ) ";
 		for(int i =0;i<arr.size();i++){
 			for(int j =arr.get(i).length-1;j>=0;j--){
-				m += arr.get(i)[j]+ "X" + "^"+ j + " ";		
+				m += arr.get(i)[j]+ "X" + "^"+ j + " + ";		
 			}
 			contador++;
 			
@@ -117,6 +117,8 @@ public class InterfazPolynomial extends JFrame{
 	
 	public void Clean(){
 		pDev.clear();
+		ArrayList<double[]> arrAux = new ArrayList<double[]>();
+		arr = arrAux;
 	}
 	
     public void Solution(){
@@ -134,6 +136,8 @@ public class InterfazPolynomial extends JFrame{
 	}
     
     public void Generate(int grade){
+    	
+    	pDev.Hide(grade);
     	
     	int[] n = new int [11];
 
@@ -156,6 +160,10 @@ public class InterfazPolynomial extends JFrame{
     
     public void disableWrite(){
     	pDev.noWrite();
-    }    
+    }   
+    
+    public int grade(){
+    	 return pOpt.getGrado();
+    }
 	
 }
