@@ -33,18 +33,21 @@ public class TestSolve {
 	@Test
 	public void scenOne(){
 		stage();
+		double[] d  =  new double[]{1,-5,6};
+		s = new Solve(d);
+		s.finsRoot();
 		
+		assertEquals(3, (int)Math.round(s.realRoots[0]));
+		assertEquals(2, (int)Math.round(s.realRoots[1]));
 	}
 	
 	@Test
 	public void sceneTwo(){
-		stage();
 		
 	}
 	
 	@Test
 	public void sceneThree(){
-		stage();
 		
 	}
 	

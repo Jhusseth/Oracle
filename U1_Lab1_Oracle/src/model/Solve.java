@@ -200,7 +200,7 @@ exterior:
         finsRoot();
         System.out.println("Raíces reales");
         for(int i=0; i<numReales; i++){
-            System.out.println((double)Math.round(realRoots[i]*100)/100);
+            System.out.println((double)Math.round((realRoots[i])));
         }
         System.out.println("");
         System.out.println("Raíces complejas");

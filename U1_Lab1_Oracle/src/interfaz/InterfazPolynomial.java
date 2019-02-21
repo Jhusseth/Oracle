@@ -49,8 +49,11 @@ public class InterfazPolynomial extends JFrame{
 	}
 	 
 	public static void main(String[] args) {
-		InterfazPolynomial windows = new InterfazPolynomial();
-		windows.setVisible(true);
+		double[] n = new double[]{16,-32,16,34,34};
+		g = new Solve(n);
+		g.showRoots();
+//		InterfazPolynomial windows = new InterfazPolynomial();
+//		windows.setVisible(true);
 		
 	}
 	
