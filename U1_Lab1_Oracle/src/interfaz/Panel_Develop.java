@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -45,20 +46,43 @@ public class Panel_Develop extends JPanel implements ActionListener {
 	private JTextArea  lb2;
 	
 	public Panel_Develop(InterfazPolynomial main) {
+		setBackground(Color.BLACK);
 		this.main=main;
 		setLayout(new BorderLayout());
 		
 		a0= new JTextField("");
+		a0.setBackground(Color.GRAY);
+		a0.setForeground(Color.RED);
 		a1= new JTextField("");
+		a1.setBackground(Color.GRAY);
+		a1.setForeground(Color.RED);
 		a2= new JTextField("");
+		a2.setBackground(Color.GRAY);
+		a2.setForeground(Color.RED);
 		a3= new JTextField("");
+		a3.setBackground(Color.GRAY);
+		a3.setForeground(Color.RED);
 		a4= new JTextField("");
+		a4.setBackground(Color.GRAY);
+		a4.setForeground(Color.RED);
 		a5= new JTextField("");
+		a5.setBackground(Color.GRAY);
+		a5.setForeground(Color.RED);
 		a6= new JTextField("");
+		a6.setBackground(Color.GRAY);
+		a6.setForeground(Color.RED);
 		a7= new JTextField("");
+		a7.setBackground(Color.GRAY);
+		a7.setForeground(Color.RED);
 		a8= new JTextField("");
+		a8.setBackground(Color.GRAY);
+		a8.setForeground(Color.RED);
 		a9= new JTextField("");
+		a9.setBackground(Color.GRAY);
+		a9.setForeground(Color.RED);
 		a10= new JTextField("");
+		a10.setBackground(Color.GRAY);
+		a10.setForeground(Color.RED);
 		
 		a0.setHorizontalAlignment(SwingConstants.CENTER);
 		a1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -74,20 +98,28 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		
 		
 		JPanel p1= new JPanel();
+		p1.setBackground(Color.BLACK);
 		p1.setLayout(new BorderLayout());
 		btnSave = new JButton("Save");
+		btnSave.setForeground(Color.BLACK);
+		btnSave.setBackground(Color.CYAN);
 		btnSave.addActionListener(this);
 		btnSave.setActionCommand(SAVE);
 		JPanel p2= new JPanel();
+		p2.setBackground(Color.BLACK);
+		p2.setForeground(Color.RED);
 		p2.setLayout(new GridLayout(1,11,10,20));
 		
 		JLabel lb = new JLabel("Escribir coeficientes del polinomio");
+		lb.setForeground(Color.WHITE);
 		lb.setHorizontalAlignment(SwingConstants.CENTER);
 		p1.add(lb,BorderLayout.SOUTH);
 		p1.add(p2,BorderLayout.CENTER);
 		p1.add(new JLabel("            "),BorderLayout.WEST);
 		p1.add(btnSave,BorderLayout.EAST);
-		p1.add(new JLabel("            "),BorderLayout.NORTH);
+		JLabel label = new JLabel("            ");
+		label.setBackground(Color.BLACK);
+		p1.add(label,BorderLayout.NORTH);
 		
 		p2.add(a10);
 		p2.add(a9);
@@ -102,6 +134,7 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		p2.add(a0);
 		
 		JPanel p3= new JPanel();
+		p3.setBackground(Color.BLACK);
 		p3.setLayout(new BorderLayout());
 	
 	
@@ -109,22 +142,35 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		add(p3,BorderLayout.NORTH);
 		
 		JPanel p5= new JPanel();
+		p5.setBackground(Color.BLACK);
+		p5.setForeground(Color.WHITE);
 		p5.setLayout(new BorderLayout());
 		
 		JPanel p4= new JPanel();
+		p4.setForeground(Color.BLACK);
 		p4.setLayout(new GridLayout(1,2,5,0));
 		
 		JPanel p6= new JPanel();
+		p6.setForeground(Color.WHITE);
+		p6.setBackground(Color.BLACK);
 		p6.setLayout(new GridLayout(1,2,5,0));
 		
 		lb1 = new  JTextArea ();
+		lb1.setForeground(Color.BLACK);
+		lb1.setBackground(Color.LIGHT_GRAY);
 		lb2= new  JTextArea ();
+		lb2.setForeground(Color.BLACK);
+		lb2.setBackground(Color.LIGHT_GRAY);
 		
 		lb1.setEditable(false);
 		lb2.setEditable(false);
 		
 		JLabel lbp =new JLabel("Polynomials :");
+		lbp.setBackground(Color.BLACK);
+		lbp.setForeground(Color.WHITE);
 		JLabel lbs =new JLabel("Solutions :");
+		lbs.setBackground(Color.BLACK);
+		lbs.setForeground(Color.WHITE);
 		
 		lbs.setHorizontalAlignment(SwingConstants.CENTER);
 		lbp.setHorizontalAlignment(SwingConstants.CENTER);
@@ -136,13 +182,14 @@ public class Panel_Develop extends JPanel implements ActionListener {
         scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
         scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
         scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
-        scroll.getViewport( ).add( p4 );
+        scroll.setViewportView(p4);
+        scroll.setBackground(Color.BLACK);
+        p4.setBackground(Color.BLACK);
 		
 		p4.add(lb1);
 		p4.add(lb2);
 		p5.add( scroll, BorderLayout.CENTER );
 		p5.add(p6,BorderLayout.NORTH);
-//		p5.add(p4,BorderLayout.CENTER);
 		
 		add(p5,BorderLayout.CENTER);
 		
@@ -186,14 +233,13 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		try{
 		
 		for(int i =0;i<aTxt.length;i++){
-			if(!aTxt[i].getText().equals("0")){
+			if(!aTxt[i].getText().equals("")||!aTxt[i].getText().equals("0") ){
 				double num = Integer.parseInt(aTxt[i].getText());
 				cPoly[i]=num;
 			}
 		}
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 		
 		return cPoly;

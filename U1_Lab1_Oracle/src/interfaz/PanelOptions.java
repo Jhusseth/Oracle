@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class PanelOptions extends JPanel implements ActionListener {
 
@@ -31,22 +32,31 @@ public class PanelOptions extends JPanel implements ActionListener {
 	int grado = 0;
 
 	public PanelOptions(InterfazPolynomial main) {
+		setBackground(Color.BLACK);
 		this.main = main;
 		grado =0;
 		
 		clean = new JButton("Clean");
+		clean.setBackground(Color.CYAN);
+		clean.setForeground(Color.BLACK);
 		clean.addActionListener(this);
 		clean.setActionCommand(CLEAN);
 		
 		ready = new JButton("Ready");
+		ready.setBackground(Color.CYAN);
+		ready.setForeground(Color.BLACK);
 		ready.addActionListener(this);
 		ready.setActionCommand(READY);
 		
 		generate = new JButton("Generate");
+		generate.setBackground(Color.CYAN);
+		generate.setForeground(Color.BLACK);
 		generate.addActionListener(this);
 		generate.setActionCommand(GENERATE);
 		
 		write = new JButton("Write");
+		write.setBackground(Color.CYAN);
+		write.setForeground(Color.BLACK);
 		write.addActionListener(this);
 		write.setActionCommand(WRITE);
 		
@@ -99,7 +109,7 @@ public class PanelOptions extends JPanel implements ActionListener {
 		    	}
 			}
 			catch(Exception ex){
-	    		ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Ocurrio algo inesperado verifique el polinomio");
 	    	}
         }
 		
@@ -116,7 +126,7 @@ public class PanelOptions extends JPanel implements ActionListener {
 		    	}
 			}
 			catch(Exception ex){
-	    		ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Ocurrio algo inesperado verifique su polinomio");
 	    	}
 		}
 	}
