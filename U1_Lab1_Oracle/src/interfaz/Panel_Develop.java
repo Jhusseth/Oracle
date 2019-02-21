@@ -210,7 +210,12 @@ public class Panel_Develop extends JPanel implements ActionListener {
 		String command = e.getActionCommand();
 		
 		if(command.equals(SAVE)){
+			try{
 			main.Message(arrayT(main.grade()));
+			}
+			catch(Exception ex){
+				
+			}
 		}
 		
 	}

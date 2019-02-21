@@ -215,14 +215,15 @@ exterior:
 	public String toString() {
 		
 		finsRoot();
-		String MsjR = "";
-		String MsjC = "";
+		String MsjR = "Raices Reales: " + "\n";
+		String MsjC = "Raices Complejas: " + "\n";
 		for(int i=0; i<numReales; i++){
-			MsjR+= "Raices Reales: " + (double)Math.round(realRoots[i]*100)/100 + "\n";
+			MsjR+= i+1 +"). "+ (double)Math.round(realRoots[i]*100)/100 + "\n";
 		}
-		
+		int cont = 1;
 		for(int i=0; i<numComplejas; i++){
-			MsjC+= "Raices Complejas: " + complextRoots[2*i] + "\n";
+			MsjC+= (cont) +"). " + complextRoots[2*i] + "\n" + (++cont) +"). " + complextRoots[2*i+1] + "\n";
+			cont++;
 		}
 		
 		return MsjR + "\n" + MsjC ;

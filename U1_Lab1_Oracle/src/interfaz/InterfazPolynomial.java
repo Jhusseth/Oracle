@@ -4,8 +4,10 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import model.Solve;
+
 import java.awt.Color;
 
 public class InterfazPolynomial extends JFrame{
@@ -49,11 +51,8 @@ public class InterfazPolynomial extends JFrame{
 	}
 	 
 	public static void main(String[] args) {
-		double[] n = new double[]{1,2,1,2,2,3,2};
-		g = new Solve(n);
-		g.showRoots();
-//		InterfazPolynomial windows = new InterfazPolynomial();
-//		windows.setVisible(true);
+		InterfazPolynomial windows = new InterfazPolynomial();
+		windows.setVisible(true);
 		
 	}
 	
@@ -95,12 +94,13 @@ public class InterfazPolynomial extends JFrame{
     	}
     	}
     	catch(Exception e){
-    		e.printStackTrace();
+    		JOptionPane.showMessageDialog(null, "Error en la solucion del polinomio");
+    		Clean();
     	}
 	}
     
     public void Generate(int grade){
-    	
+    	pDev.look();
     	pDev.Hide(grade);
     	
     	int[] n = new int [11];
@@ -119,6 +119,7 @@ public class InterfazPolynomial extends JFrame{
     }
     
     public void activeWrite(int grade){
+    	pDev.look();
     	pDev.write();
     	pDev.Hide(grade);
     }
