@@ -1,0 +1,5 @@
+In the data folder of the program, a video 
+containing the instructions for the operation 
+and management of the program was attached. 
+for each polynomial verify to be solved given 
+that some have no solution.
