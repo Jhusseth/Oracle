@@ -68,9 +68,7 @@ public class InterfazPolynomial extends JFrame{
 			
 			m +="\n" + contador + " ). ";
 		}
-		
 		pDev.setLb1(m + "\n");
-		
 	}
 	
 	public ArrayList<double[]> getArray(){
