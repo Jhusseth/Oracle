@@ -70,6 +70,7 @@ public class InterfazPolynomial extends JFrame{
 		}
 		
 		pDev.setLb1(m + "\n");
+		
 	}
 	
 	public ArrayList<double[]> getArray(){
