@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import model.Graeffe;
+import model.Solve;
 
 public class InterfazPolynomial extends JFrame{
 	/**
@@ -13,7 +13,7 @@ public class InterfazPolynomial extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private static Graeffe g ;
+	private static Solve g ;
 	private Panel_Develop pDev;
 	private PanelOptions pOpt;
 	
@@ -41,7 +41,7 @@ public class InterfazPolynomial extends JFrame{
 		
 		disableWrite();
 		
-		g = new Graeffe();
+		g = new Solve();
 	}
 	 
 	public static void main(String[] args) {
@@ -79,20 +79,20 @@ public class InterfazPolynomial extends JFrame{
 //	        g=new Graeffe(coef9);
 //	        g.mostrarRaices();
 		 
-//		 double[] coef = {1,2,3,4,5,6,7,8};
-//		 g = new Graeffe(coef);
-//		 g.mostrarRaices();
-//     
-//		 try  {
-//			 System.in.read();  
-//		 }
-//		 catch (Exception ex) { 
-//			 System.out.println(ex);  
-//		 }   
+		 double[] coef = {1,2,1};
+		 g = new Solve (coef);
+		 g.showRoots();
+     
+		 try  {
+			 System.in.read();  
+		 }
+		 catch (Exception ex) { 
+			 System.out.println(ex);  
+		 }   
 //		 
 		 
-		InterfazPolynomial windows = new InterfazPolynomial();
-		windows.setVisible(true);
+//		InterfazPolynomial windows = new InterfazPolynomial();
+//		windows.setVisible(true);
 		
 	}
 	
@@ -129,7 +129,7 @@ public class InterfazPolynomial extends JFrame{
     		for(int j =arr.get(i).length-1;j>=0;j--){
     			arg[j]=arr.get(i)[j];
     		}
-    		g = new Graeffe(arg);
+    		g = new Solve(arg);
     		pDev.setLb2(g.toString());   		
     	}
     	}
